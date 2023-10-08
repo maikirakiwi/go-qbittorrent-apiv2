@@ -307,7 +307,7 @@ func (c *Client) RenameFolder(hash, old, new string) error {
 	return nil
 }
 
-func (c *Client) setLocation(location string, hashes ...string) error {
+func (c *Client) SetLocation(location string, hashes ...string) error {
 	hs := strings.Join(hashes, "|")
 	opt := Optional{
 		"hashes":   hs,
