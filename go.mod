@@ -1,4 +1,4 @@
-module github.com/maikirakiwi/go-qbittorrent-apiv2
+module github.com/NullpointerW/go-qbittorrent-apiv2
 
 go 1.20
 
