@@ -307,6 +307,21 @@ func (c *Client) RenameFolder(hash, old, new string) error {
 	return nil
 }
 
+func (c *Client) setLocation(location string, hashes ...string) error {
+	hs := strings.Join(hashes, "|")
+	opt := Optional{
+		"hashes":   hs,
+		"location": location,
+	}
+	resp, err := c.postXwwwFormUrlencoded("torrents/setLocation", opt)
+	err = RespOk(resp, err)
+	if err != nil {
+		return err
+	}
+	ignrBody(resp.Body)
+	return nil
+}
+
 func (c *Client) AddCategory(categoryName, savePath string) error {
 	opt := Optional{
 		"category": categoryName,
